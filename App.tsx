@@ -1,4 +1,3 @@
-import React from 'react';
-import Player from './src/Player'
+import Router from './src/Router'
 
-export default Player
+export default Router

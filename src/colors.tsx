@@ -3,7 +3,7 @@ const colors = {
   text: '#002630',
   secondaryBackground: '#444',
   secondaryText: '#eee',
-  highlightedBackgroudn: '#00ACAD',
+  highlightedBackground: '#00ACAD',
   highlightedText: '#fff',
 };
 

@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import styled from 'styled-components/native';
 import colors from './colors'
 
@@ -11,5 +11,10 @@ export const DefaultContainer = styled(View)`
 
 export const DefaultText = styled(Text)`
   color: ${colors.text};
-  border-color: tomato;
+`;
+
+export const CoverImage = styled(Image)`
+  resizeMode: contain;
+  width: 200;
+  height: 200;
 `;
