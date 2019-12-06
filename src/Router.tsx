@@ -1,5 +1,6 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import PlayerScreen from './PlayerScreen'
 import colors from './colors';
@@ -21,4 +22,10 @@ const AppNavigator = createStackNavigator({
   },
 });
 
-export default createAppContainer(AppNavigator);
+const TabNavigator = createBottomTabNavigator({
+  Home: AppNavigator,
+  Settings: PlayerScreen,
+});
+
+
+export default createAppContainer(TabNavigator);
