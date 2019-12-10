@@ -46,7 +46,7 @@ const TabNavigator = createBottomTabNavigator({
   Player: PlayerNavigator,
   Buddies: BuddiesNavigator,
 }, {
-  initialRouteName: 'Library',
+  initialRouteName: 'Player',
   defaultNavigationOptions: ({ navigation }) => ({
     tabBarIcon: ({ focused, horizontal, tintColor }) => {
       const { routeName } = navigation.state;
