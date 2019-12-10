@@ -1,5 +1,4 @@
 import React from 'react';
-import { DefaultContainer, DefaultText, CoverImage } from './components';
 
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -9,12 +8,11 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 import PlayerScreen from './PlayerScreen'
 import colors from './colors';
+import { LibraryScreen } from './LibraryScreen';
+import { BuddiesScreen } from './BuddiesScreen';
 
-const AppNavigator = createStackNavigator({
-  Player: PlayerScreen
-},
-{
-  initialRouteName: 'Player',
+const defaultOptions = {
+  initialRouteName: 'Default',
   defaultNavigationOptions: {
     title: 'BuddyBox',
     headerStyle: {
@@ -25,22 +23,30 @@ const AppNavigator = createStackNavigator({
       fontWeight: 'bold',
     },
   },
-});
+};
 
-const LibraryScreen = () => <DefaultContainer>
-  <DefaultText>Library</DefaultText>
-</DefaultContainer>;
+const LibraryNavigator = createStackNavigator({
+    Default: LibraryScreen
+  }, defaultOptions
+);
 
-const BuddiesScreen = () => <DefaultContainer>
-  <DefaultText>Buddies</DefaultText>
-</DefaultContainer>;
+const PlayerNavigator = createStackNavigator({
+    Default: PlayerScreen
+  }, defaultOptions
+);
+
+const BuddiesNavigator = createStackNavigator({
+    Default: BuddiesScreen
+  }, defaultOptions
+);
+
 
 const TabNavigator = createBottomTabNavigator({
-  Library: LibraryScreen,
-  Player: AppNavigator,
-  Buddies: BuddiesScreen,
+  Library: LibraryNavigator,
+  Player: PlayerNavigator,
+  Buddies: BuddiesNavigator,
 }, {
-  initialRouteName: 'Player',
+  initialRouteName: 'Library',
   defaultNavigationOptions: ({ navigation }) => ({
     tabBarIcon: ({ focused, horizontal, tintColor }) => {
       const { routeName } = navigation.state;
